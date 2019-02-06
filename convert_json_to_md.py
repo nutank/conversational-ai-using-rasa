@@ -9,12 +9,13 @@ from rasa_nlu.training_data import load_data
 
 # USE AT YOUR OWN RISK
 
-# input_training_file = '<nlu_data_json_file_path>'
+input_training_file = '/Users/ajency/Desktop/Workshop/chatbot/slackbot/data/nlu.json'
+
 # *******************************************************
 # TAKE CARE: output_md_file is overwritten automatically
 # *******************************************************
 
-# output_md_file = '<output_md_file_path>'
+output_md_file = '/Users/ajency/Desktop/Workshop/chatbot/slackbot/data/training.md'
 
 with open(output_md_file,'w') as f:
     f.write(load_data(input_training_file).as_markdown())
