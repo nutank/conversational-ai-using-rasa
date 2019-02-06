@@ -15,8 +15,25 @@ logger = logging.getLogger(__name__)
 class ApiAction(Action):
     def name(self):
         # define the name of the action which can then be included in training stories
-        # return <name_of_the_action> 
+        return "action_retrieve_image" 
 
     def run(self, dispatcher, tracker, domain):
         
-        # code to handle what the action will do
+        group = tracker.get_slot('group')
+
+        print ("Group " + group)
+        
+        r = requests.get('http://shibe.online/api/{}?count=1&urls=true&httpsUrls=true'.format(group))
+        response = r.content.decode()
+
+        print ("Response content " + response)
+
+
+        response = response.replace('["',"")
+        response = response.replace('"]',"")
+
+        print ("Unformatted response" + response)
+   
+        
+        #display(Image(response[0], height=550, width=520))
+        dispatcher.utter_message("Here is something to cheer you up: {}".format(response))
