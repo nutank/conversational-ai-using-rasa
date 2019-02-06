@@ -1,0 +1,23 @@
+# Defines the universe in which the bot lives
+
+intents:
+- intent1
+- intent2
+    
+entities:
+- entity1
+- entity2
+
+
+slots:
+  group:
+    type: text
+
+actions:
+- action1
+
+
+templates:
+  action1:
+  - text: "sample text"
+
