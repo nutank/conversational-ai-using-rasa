@@ -1,1 +1,1 @@
-# conversational-ai-using-rasa
+# Basic Intro to Conversational AI using RASA
