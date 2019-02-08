@@ -1,26 +1,55 @@
-<!--
 
-## story1
-* intent1
-  - action1.1
-  - action1.2
-  - user_input1.3
-* intent2
-  - action2.1
-  - action2.2
-  - user_input2.3
+## happy path   
+* greet         
+ - utter_greet  
+* mood_great     
+ - utter_happy
+* mood_affirm
+  - utter_happy
+* mood_affirm
+  - utter_goodbye 
 
-## story2
-* intent3
-  - action3.1
-  - action3.2
-  - user_input3.3
+## sad path 1               
+* greet
+  - utter_greet             
+* mood_unhappy
+  - utter_ask_picture
+* inform{"group":"dog"}  
+  - action_retrieve_image
+  - utter_did_that_help
+* mood_affirm
+  - utter_happy
 
+## sad path 2
+* greet
+  - utter_greet
+* mood_unhappy
+  - utter_ask_picture
+* inform{"group":"cat"}
+  - action_retrieve_image
+  - utter_did_that_help
+* mood_deny
+  - utter_goodbye
+  
+## sad path 3
+* greet
+  - utter_greet
+* mood_unhappy{"group":"puppy"}
+  - action_retrieve_image
+  - utter_did_that_help
+* mood_affirm
+  - utter_happy
+  
+## strange user
+* mood_affirm
+  - utter_happy
+* mood_affirm
+  - utter_unclear
 
-command to train NLU data : python -m rasa_nlu.train -c nlu_config.yml --data data/nlu.md -o models --fixed_model_name nlu --project current --verbose
+## say goodbye
+* goodbye
+  - utter_goodbye
 
-
--->
-
-
+## fallback
+- utter_unclear
 
